@@ -8,9 +8,9 @@ insert into Classes (title, speaker, details, current, max) values("스트레스
 insert into Classes (title, speaker, details, current, max) values("스트레스를 부탁해", "정소림 간사", "정서적으로 건강하지 않을 때 어떤 어려움이 생기는지 알아보고, 정서적으로 건강한 영성을 발전시키기 위해 필요한 구체적인 방법을 알아본다.", 0, 20);
 insert into Classes (title, speaker, details, current, max) values("일본 기독교 역사와 선교", "길기진 간사", "오랜 깊이를 갖고 있는 기독교 선교의 역사를 알아보고 어떻게 우리가 일본을 품고 기도하고 선교할 수 있는지에 대해서 나눠보는 시간을 갖는 시간입니다.", 0, 20);
 insert into Classes (title, speaker, details, current, max) values("7ways to find the Vision", "방시리 간사", "비전을 찾아가는 7가지 길잡이.", 0, 30);
-insert into Classes (title, speaker, details, current, max) values("", "이동수 간사", "성경이 말하는 하나님의 뜻을 알고싶은 사람 모여라.", 0, 20);
-insert into Classes (title, speaker, details, current, max) values("24‘≠θ", "양진웅 간사", "친한 친구,동기인 너와 나 얼마나 맞고 얼마나 안 맞을까? 이고그램을 통해 알아보자!! 친구끼리 같이 모여!!^^", 0, 20);
-insert into Classes (title, speaker, details, current, max) values("U & I", "성윤제 간사", "2019년 새롭게 시작하는 가운데 목표를 정하고 계획을 세우고 실천하자 그러면 그 행동이 다른 곳에서의 움직임을 이끌어 낼 것이다.", 0, 20);
+insert into Classes (title, speaker, details, current, max) values("24‘≠θ", "이동수 간사", "성경이 말하는 하나님의 뜻을 알고싶은 사람 모여라.", 0, 20);
+insert into Classes (title, speaker, details, current, max) values("U & I", "양진웅 간사", "친한 친구,동기인 너와 나 얼마나 맞고 얼마나 안 맞을까? 이고그램을 통해 알아보자!! 친구끼리 같이 모여!!^^", 0, 20);
+insert into Classes (title, speaker, details, current, max) values("종이 위에 기적, 쓰면 이루어진다", "성윤제 간사", "2019년 새롭게 시작하는 가운데 목표를 정하고 계획을 세우고 실천하자 그러면 그 행동이 다른 곳에서의 움직임을 이끌어 낼 것이다.", 0, 20);
 insert into Classes (title, speaker, details, current, max) values("관계의 골든타임", "진인엽 간사", "캠퍼스의 4년! 관계에 고민하는 당신, 관계를 풀지 못하는 이유를 하나님과의 관계에서 찾고 관계의 중요성을 알고 가자!", 0, 30);
 insert into Classes (title, speaker, details, current, max) values("음란마귀와 맞짱뜨기!", "박구연 간사", "그리스도인의 성과 음란물중독에 대해 바로 알고 그리스도인의 거룩함을 회복하자! ", 0, 20);
 insert into Classes (title, speaker, details, current, max) values("고구마만 먹고 있는 당신,", "이시온 간사", "이제는 사이다 좀 마시자!\n강의내용: 사람들과 지내며 고구마만 먹었던 당신, 이 시간 함께 모여 사이다를 마시며 cool 하게 관계 맺는 법을 나누자.", 0, 20);
