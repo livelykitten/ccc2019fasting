@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>2018 대전충남 금식수련회 등록</title>
+	<link rel="stylesheet" type="text/css" href="login.css">
+	<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+</head>
+<body>
+	<script>
+		function createOption(sel, value, text) {
+			var opt = document.createElement('option');
+			opt.id = "c_"+value;
+			opt.value = value;
+			opt.text = text;
+			sel.options.add(opt);
+		}
+		var list1 = ["공주대", "공주교대", "한국영상대", "간사"];
+		var list2 = ["건양대", "과기대", "대전대", "목원대", "배재대", "우송대", "중부대", "충남대", "카이스트", "한남대", "한밭대", "간사"];
+		var list3 = ["고려대", "홍익대", "간사"];
+		var list4 = ["공주대예산", "공주대천안", "나사렛대", "남서울대", "단국대", "백석대", "백석문화대", "상명대", "서남대", "순천향대", "연암대", "호서대아산", "호서대천안", "간사"];
+		var list5 = ["한서대", "혜전대", "청운대", "간사"];
+		var list6 = ["기타"];
+		
+		function getcampus() {
+			var campus_select = document.getElementById('sel_campus');
+			var earth = document.getElementById('sel_earth').value;
+			campus_select.options.length = 1;
+			if (earth == "공주") {
+				for (i = 0; i < list1.length; i++) {
+					createOption(campus_select, list1[i], list1[i]);
+				}
+			}
+			else if (earth == "대전") {
+				for (i = 0; i < list2.length; i++) {
+					createOption(campus_select, list2[i], list2[i]);
+				}
+			}
+			else if (earth == "세종") {
+				for (i = 0; i < list3.length; i++) {
+					createOption(campus_select, list3[i], list3[i]);
+				}
+			}
+			else if (earth == "천안") {
+				for (i = 0; i < list4.length; i++) {
+					createOption(campus_select, list4[i], list4[i]);
+				}
+			}
+			else if (earth == "홍성") {
+				for (i = 0; i < list5.length; i++) {
+					createOption(campus_select, list5[i], list5[i]);
+				}
+			}
+			else if (earth == "기타") {
+				for (i = 0; i < list6.length; i++) {
+					createOption(campus_select, list6[i], list6[i]);
+				}
+			}
+		}
+	</script>
+
+	<div align="center">
+		<p class="title">2018 대전·충남 금식 수련회</p>
+		<img src="poster.png" width=300 height=260 style="margin-bottom: 10px">
+	</div>
+	<div class="outerbox">
+		<form action="/login" method="post">
+			<select id="sel_earth" name="earth" onchange="getcampus()" required="true">
+				<option disabled selected value=""> -- 지구를 고르세요 -- </option>
+				<option id="e_공주" value="공주">공주</option>
+				<option id="e_대전" value="대전">대전</option>
+				<option id="e_세종" value="세종">세종</option>
+				<option id="e_천안" value="천안">천안</option>
+				<option id="e_홍성" value="홍성">홍성</option>
+				<option id="e_기타" value="기타">기타</option>
+			</select>
+
+			<select id="sel_campus" name="campus" required="true">
+				<option disabled selected value=""> -- 캠퍼스를 고르세요 -- </option>
+			</select>
+
+			<select id="sel_year" name="year" required="true">
+				<option disabled selected value=""> -- 학번을 고르세요 -- </option>
+				<option id="y_10" value="10">10 이상</option>
+				<option id="y_11" value="11">11</option>
+				<option id="y_12" value="12">12</option>
+				<option id="y_13" value="13">13</option>
+				<option id="y_14" value="14">14</option>
+				<option id="y_15" value="15">15</option>
+				<option id="y_16" value="16">16</option>
+				<option id="y_17" value="17">17</option>
+				<option id="y_0" value="0">기타</option>
+			</select>
+
+			<p style="margin-bottom: 4px">이름:</p>
+			<input type="text" id="name" name="name" placeholder="이름" required="true">
+			<p style="margin-bottom: 4px">비밀번호:</p>
+			<input type="password" name="password" placeholder="비밀번호" required="required">
+			<p class="errormessage"><%= login_message %></p>
+
+			<p>로그인이 처음일 경우 새로운 비밀번호를 생성하세요. 재 로그인일 경우 처음에 설정 했던 비밀번호를 입력하세요.</p>
+			<input type="submit" id="submit_button" class="pinkbutton" value="로그인">
+		</form>
+	</div>
+	<div align="center">
+		<p style="color:white;font-size:13px"> 비밀번호 분실 및 오류 보고는 010-2714-9608 / 010-9492-3829 로 해주세요 </p>
+	</div>
+	<% if (wrong) { %>
+	<script>
+		document.getElementById('e_'+"<%= earth %>").selected = true;
+		getcampus();
+		document.getElementById('c_'+"<%= campus %>").selected = true;
+		document.getElementById('y_'+"<%= year %>").selected = true;
+		document.getElementById('name').value = "<%= name %>"
+	</script>
+	<% } %>
+</body>
+</html>
