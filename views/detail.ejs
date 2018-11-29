@@ -16,6 +16,7 @@
 		<h2 style="color:white" class="title"><%= bibleinfo.title %></h2>
 		<p class="detail_info">강사: <%= bibleinfo.speaker %></p>
 		<p class="detail_info">수강인원: <%= bibleinfo.current %>/<%= bibleinfo.max %></p>
+		<p class="class_details"><%= bibleinfo.details %></p>
 		<% if (registered) { %>
 		<form action="/cancel" class="detail_form" onsubmit="return confirm('강의 신청을 취소하겠습니까?');">
 			<input type="hidden" name="t" value="b"/>

@@ -3,7 +3,7 @@
 var mysql = require('mysql');
 var dbconfig = require('./config/database');
 var connection = mysql.createConnection(dbconfig.connection);
-var overview_pw = "seum";
+var overview_pw = "heart";
 
 connection.query('USE ' + dbconfig.database);
 
