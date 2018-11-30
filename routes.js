@@ -31,7 +31,11 @@ module.exports = function(app, passport) {
 		res.render('login.ejs', {wrong : (loginMessage.length != 0), login_message : loginMessage, name : name, earth : earth, campus : campus, year : year});
 	});
 
-	app.post('/login', passport.authenticate('local-login', { successRedirect : '/', failureRedirect : '/' }));
+	app.get('/notice', isLoggedIn, function(req, res) {
+		res.render('notice.ejs');
+	})
+
+	app.post('/login', passport.authenticate('local-login', { successRedirect : '/notice', failureRedirect : '/' }));
 
 
 	app.get('/logout', isLoggedIn, function(req, res) {
