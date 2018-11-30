@@ -77,7 +77,7 @@ html, body {
 }
 
 .line{
-	border:1.5px dashed #777;
+	border:1.5px dashed #aabbcc;
 }
 
 .overview_button {
@@ -118,12 +118,6 @@ html, body {
 }
 
 .detail_info {
-	margin: 8px 0 0 0;
-	color: white;
-	font-size: 20px;
-}
-
-.detail_info_field {
 	margin: 8px 0 0 0;
 	color: white;
 	font-size: 20px;
