@@ -32,13 +32,7 @@
 		<% } %>
 	</div>
 	<% } else if (type == "class") { %>
-	<% if (classinfo.speaker == "연규운 목사") { %>
-		<div class="bigbox1" align="center">
-	<% else if (classinfo.speaker == "VLM") { %>
-		<div class="bigbox2" align="center">
-	<% } else { %>
-	<div class="bigbox" align="center">
-	<% } %>
+	<div class=<%= box %> align="center">
 		<h2 style="color:white" class="title"><%= classinfo.title %></h2>
 		<p class="detail_info">주제: <%= classinfo.field %></p>
 		<p class="detail_info">강사: <%= classinfo.speaker %></p>

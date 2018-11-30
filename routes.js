@@ -63,7 +63,12 @@ module.exports = function(app, passport) {
 					connection.query("SELECT * FROM Users where uid = ? and cid = ?", [req.user.uid, req.query.cid], function(err2, rows2) {
 						if (err2)
 							console.log(err2);
-						res.render('detail.ejs', {type : "class", classinfo : rows1[0], registered : (rows2.length > 0)});
+						var box_type = "bigbox";
+						if (rows1[0].speaker == "연규운 목사")
+							box_type += "1"
+						else if (rows1[0].speaker == "VLM")
+							box_type += "2"
+						res.render('detail.ejs', {type : "class", box : box_type, classinfo : rows1[0], registered : (rows2.length > 0)});
 					});
 				}
 			});
