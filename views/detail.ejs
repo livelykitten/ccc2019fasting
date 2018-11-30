@@ -34,7 +34,7 @@
 	<% } else if (type == "class") { %>
 	<div class="bigbox" align="center">
 		<h2 style="color:white" class="title"><%= classinfo.title %></h2>
-		<p class="detail_info">(<%= classlist[x].field %>)</p>
+		<p class="detail_info_field">(<%= classinfo.field %>)</p>
 		<p class="detail_info">강사: <%= classinfo.speaker %></p>
 		<p class="detail_info">수강인원: <%= classinfo.current %>/<%= classinfo.max %></p>
 		<p class="class_details"><%= classinfo.details %></p>

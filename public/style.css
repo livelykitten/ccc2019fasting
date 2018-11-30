@@ -1,5 +1,5 @@
 html, body {
-	background-color: #161930;
+	background-color: #4477aa;
 	margin: 0px 0px 0px 0px;
 }
 
@@ -69,6 +69,13 @@ html, body {
 	font-size: 16px;
 }
 
+.index_details_field {
+	color: white;
+    font-size: 20px;
+    margin-top: 2px;
+	margin-bottom: 0px;
+}
+
 .line{
 	border:1.5px dashed #777;
 }
@@ -111,6 +118,12 @@ html, body {
 }
 
 .detail_info {
+	margin: 8px 0 0 0;
+	color: white;
+	font-size: 20px;
+}
+
+.detail_info_field {
 	margin: 8px 0 0 0;
 	color: white;
 	font-size: 20px;
