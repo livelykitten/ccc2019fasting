@@ -14,6 +14,7 @@ CREATE TABLE Classes (
 	max int not null,
 	current int not null,
 	details varchar(3000),
+	field varchar(255),
 	CHECK (current <= max),
 	CHECK (current >= 0),
 	PRIMARY KEY (cid)
