@@ -33,6 +33,28 @@ html, body {
 	align-content: center;
 }
 
+.bigbox1 {
+	position: relative;
+	border: 1px solid #FFFFFF;
+	border-radius: 2px;
+	margin: auto;
+	width: 800px;
+	height: 500px;
+	alignment-baseline: center;
+	align-content: center;
+}
+
+.bigbox2 {
+	position: relative;
+	border: 1px solid #FFFFFF;
+	border-radius: 2px;
+	margin: auto;
+	width: 800px;
+	height: 620px;
+	alignment-baseline: center;
+	align-content: center;
+}
+
 .title {
 	white-space: pre-line;
 	margin-top: 20px;
