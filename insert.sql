@@ -30,7 +30,7 @@ insert into Classes (title, field, speaker, details, current, max) values("미�
 
 insert into Bible (title, speaker, details, current, max) values("요한계시록과 복음 (이기는 자가 되라)", "이창세 목사", "1) 요한계시록 큰 그림으로 보기.\n2) 요한계시록과 복음(계시록에 나타난 그리스도 / 영적전쟁/ 우리는 어떻게 이길 수 있는가?)\n3)144,000그들은 누구인가(계7,14장)\n4)요한계시록 각장 문제정리", 0, 100);
 insert into Bible (title, speaker, details, current, max) values("사사기", "강춘석 목사", "우리는 사사기를 단지 하나의 고대 역사서가 아닌 살아있는 ‘하나님의 말씀’으로 믿고 거기에서 오늘날 우리에게 말씀하시는 하나님의 음성을 듣고자 한다", 0, 100);
-insert into Bible (title, speaker, details, current, max) values("기독교 세계관", "현지식 목사", "", 0, 100);
+insert into Bible (title, speaker, details, current, max) values("기독교 세계관", "현지식 목사", "많은 기독청년들은 예수를 믿고 더 많이 기도하고, 말씀보고, 헌신하려 한다.  그러면 스스로 성장한 것처럼 보이기도 한다.  그러나 얼마 지나지 않아 이전 모습으로 되돌아온 자신의 모습에 좌절한다.  왜 일까?  그리스도인이 되었다는 것은 생각과 사상이 바뀌었다는 것인데 왜 우리의 행동은 변하지 않는가?  청년 그리스도인의 Key word 중 하나인 기독교세계관 형성은 균형 잡힌 순장에게 매우 중요한 영역이다.  기독교세계관의 기초적인 내용을 다룸으로 그리스도의 장성한 분량에 이르는 성숙한 기독청년으로의 시작을 돕고자 한다", 0, 100);
 insert into Bible (title, speaker, details, current, max) values("‘성’(sex)에 대한 팩트 체크", "조신형 목사", "섹스, 사랑 그리고 관계에 대한 성경적 진리\n(The Truth about Sex, Love, and Relationship)", 0, 100);
 insert into Bible (title, speaker, details, current, max) values("행복하게 잘 지내는 방법\n(1학년만 신청가능)", "장세영 간사", "다양한 활동들과 검사들을 통해나를 알고 너를 알아서 좋은 관계를 맺어가고 유지하는 방법(좋은 관계 형성 프로젝트)", 0, 100);
 insert into Bible (title, speaker, details, current, max) values("느헤미야를 통해 본 리더십", "이봉희 간사", "민족의 위기 앞에 철저하게 준비된 실력과 영성으로 외부의 침략과 내부의 분열을 극복하고 이스라엘의 성벽재건을 완성, 영적부흥을 주도한 느헤미야를 통해 배우는 리더십", 0, 100);
