@@ -228,7 +228,12 @@ module.exports = function(app, passport) {
 						for (i in bibles)
 							biblelist.push([bibles[i].title]);
 						for (p in rows) {
-							classlist[rows[p].cid==null ? 0 : rows[p].cid].push({name : rows[p].name, campus : rows[p].campus});
+							var assert = require('assert');
+							assert(rows[p].cid != 19);
+							var cid = rows[p].cid
+							if (rows[p].cid > 19)
+								cid -= 1;
+							classlist[cid==null ? 0 : cid].push({name : rows[p].name, campus : rows[p].campus});
 							biblelist[rows[p].bid==null ? 0 : rows[p].bid].push({name : rows[p].name, campus : rows[p].campus});
 						}
 						// for (c in classlist)
