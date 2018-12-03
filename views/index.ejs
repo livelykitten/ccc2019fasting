@@ -22,7 +22,7 @@
 	<div class="mainbox">
 		<h3 style="color:white"> 1. 주제강의/성서강해 </h3>
 		<% for (x in biblelist) { %>
-		<div class="item" id="col">
+		<div class="item_b" id="col">
 			<a href="/details?t=b&bid=<%= biblelist[x].bid %>" id="b_title" class="item_title"><%= biblelist[x].title %></a>
 			<p class="index_details">강사: <%= biblelist[x].speaker %></p>
 			<p class="index_details">수강인원: <%= biblelist[x].current %>/<%= biblelist[x].max %></p>
@@ -49,7 +49,7 @@
 	<div class="mainbox">
 		<h3 style="color:white"> 2. 선택강의 </h3>
 		<% for (x in classlist) { %>
-		<div class="item" id="col">
+		<div class="item_c" id="col">
 			<a href="/details?t=c&cid=<%= classlist[x].cid %>" id="c_title" class="item_title"><%= classlist[x].title %></a>
 			<p class="index_details_field">(<%= classlist[x].field %>)</p>
 			<p class="index_details">강사: <%= classlist[x].speaker %></p>

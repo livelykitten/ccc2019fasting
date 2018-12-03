@@ -68,11 +68,24 @@ html, body {
 	white-space: pre-line;
 }
 
-.item {
+.item_b {
 	border: 2px solid #FFFFFF;
 	border-radius: 3px;
 	width: 400px;
 	height: 200px;
+	display: inline-block;
+	margin: 10px;
+	font-family: 'Nanum Gothic', serif;
+	padding: 8px;
+	overflow: hidden;
+	position: relative;
+}
+
+.item_c {
+	border: 2px solid #FFFFFF;
+	border-radius: 3px;
+	width: 400px;
+	height: 220px;
 	display: inline-block;
 	margin: 10px;
 	font-family: 'Nanum Gothic', serif;
