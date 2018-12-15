@@ -3,14 +3,17 @@
 var mysql = require('mysql');
 var dbconfig = require('./config/database');
 var connection = mysql.createConnection(dbconfig.connection);
+connection.query('USE ' + dbconfig.database);
 var overview_pw = "heart";
 
 function handleDisconnect() {
     console.log('handleDisconnect()');
     connection = mysql.createConnection(dbconfig.connection); // Recreate the connection, since
-                                                    // the old one cannot be reused.
-    connection.connect(function(err) {              // The server is either down
-    if(err) {                                      // or restarting (takes a while sometimes).
+	connection.query('USE ' + dbconfig.database);   // the old one cannot be reused.
+													// The server is either down
+													// or restarting (takes a while sometimes).
+    connection.connect(function(err) {
+    if(err) {
         console.log(' Error when connecting to db:', err);
         setTimeout(handleDisconnect, 1000);         // We introduce a delay before attempting to reconnect,
     }                                               // to avoid a hot loop, and to allow our node script to
@@ -25,7 +28,6 @@ function handleDisconnect() {
             throw err;                                // server variable configures this)
         }
     });
-
 }
 
 function checkConnection() {
