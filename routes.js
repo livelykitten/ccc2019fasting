@@ -6,43 +6,9 @@ var connection = mysql.createConnection(dbconfig.connection);
 connection.query('USE ' + dbconfig.database);
 var overview_pw = "heart";
 
-function handleDisconnect() {
-    console.log('handleDisconnect()');
-    connection = mysql.createConnection(dbconfig.connection); // Recreate the connection, since
-	connection.query('USE ' + dbconfig.database);   // the old one cannot be reused.
-													// The server is either down
-													// or restarting (takes a while sometimes).
-    connection.connect(function(err) {
-    if(err) {
-        console.log(' Error when connecting to db:', err);
-        setTimeout(handleDisconnect, 1000);         // We introduce a delay before attempting to reconnect,
-    }                                               // to avoid a hot loop, and to allow our node script to
-    });                                             // process asynchronous requests in the meantime.
-                                                    // If you're also serving http, display a 503 error.
-
-    connection.on('  Database Error', function(err) {
-        console.log('db error: ' + err.code, err);
-        if(err.code === 'PROTOCOL_CONNECTION_LOST') { // Connection to the MySQL server is usually
-            handleDisconnect();                       // lost due to either server restart, or a
-        } else {                                      // connnection idle timeout (the wait_timeout
-            throw err;                                // server variable configures this)
-        }
-    });
-}
-
-function checkConnection() {
-	connection.connect(function(err) {
-		if(err)
-			setTimeout(handleDisconnect, 1000);
-	});
-}
-
-connection.query('USE ' + dbconfig.database);
-
 module.exports = function(app, passport) {
 
 	app.get('/', isLoggedIn, function(req, res) {
-		checkConnection();
 		connection.query("SELECT bid, cid FROM Users where uid = ?", [req.user.uid], function(err, rows) {
 			if (err) console.log(err);
 			connection.query("SELECT * FROM Bible", function(err1, rows1) {
@@ -77,7 +43,6 @@ module.exports = function(app, passport) {
 	});
 
 	app.get('/deleteAccount', function(req, res) {
-		checkConnection();
 		connection.query("DELETE FROM Users WHERE id = ?", [req.user.uid], function(err, rows) {
 			console.log(rows);
 			console.log(err);
@@ -87,7 +52,6 @@ module.exports = function(app, passport) {
 	});
 
 	app.get('/details', isLoggedIn, function(req, res) {
-		checkConnection();
 		if (req.query.t == "c") {
 			connection.query("SELECT * FROM Classes where cid = ?", [req.query.cid], function(err1, rows1) {
 				if (err1)
@@ -126,7 +90,6 @@ module.exports = function(app, passport) {
 	});
 
 	app.get('/cancel', isLoggedIn, function(req, res) {
-		checkConnection();
 		if (req.query.t == "c") {
 			connection.query("SELECT cid from Users where uid = ?", [req.user.uid], function(err, rows) {
 				if (err)
@@ -174,7 +137,6 @@ module.exports = function(app, passport) {
 	})
 
 	app.get('/register', isLoggedIn, function(req, res) {
-		checkConnection();
 		if (req.query.t == "c") {
 			connection.query("SELECT cid from Users where uid = ?", [req.user.uid], function(err, rows) {
 				if (err)
@@ -230,7 +192,6 @@ module.exports = function(app, passport) {
 	});
 
 	app.get('/my', isLoggedIn, function(req, res) {
-		checkConnection();
 		connection.query("SELECT cid, bid FROM Users where uid = ?", [req.user.uid], function(err, rows) {
 			connection.query("SELECT * FROM Classes where cid = ?", [rows[0].cid], function(err1, rows1) {
 				connection.query("SELECT * FROM Bible where bid = ?", [rows[0].bid], function(err2, rows2) {
@@ -253,7 +214,7 @@ module.exports = function(app, passport) {
 	});
 
 	app.post('/overview', function(req, res) {
-		checkConnection();
+		
 		if (req.body.password == overview_pw) {
 			connection.query("SELECT cid, title FROM Classes", function(err1, classes) {
 				if (err1) console.log(err1);
