@@ -2,8 +2,7 @@
 
 var mysql = require('mysql');
 var dbconfig = require('./config/database');
-var connection = mysql.createConnection(dbconfig.connection);
-connection.query('USE ' + dbconfig.database);
+var connection = mysql.createPool(dbconfig.poolconfig);
 var overview_pw = "heart";
 
 module.exports = function(app, passport) {
