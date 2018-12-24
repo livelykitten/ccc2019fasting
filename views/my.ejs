@@ -19,11 +19,11 @@
 				<h3 style="color:white"><%= bibleinfo.title %></h3>
 				<p style="color:white">강사: <%= bibleinfo.speaker %></p>
 				<p style="color:white">수강인원: <%= bibleinfo.current %>/<%= bibleinfo.max %></p>
-				<form action="/cancel" onsubmit="return confirm('강의 신청을 취소하겠습니까?');">
+				<!-- <form action="/cancel" onsubmit="return confirm('강의 신청을 취소하겠습니까?');">
 					<input type="hidden" name="t" value="b"/>
 					<input type="hidden" name="bid" value="<%= bibleinfo.bid %>"/>
 				  <input type="submit" class="buttoncenter" value="취소하기"/>
-				</form>
+				</form> -->
 			</div>
 			<% } else { %>
 			<div class="myitem" align="center">
@@ -39,11 +39,11 @@
 				<p style="color:white">주제: <%= classinfo.field %></p>
 				<p style="color:white">강사: <%= classinfo.speaker %></p>
 				<p style="color:white">수강인원: <%= classinfo.current %>/<%= classinfo.max %></p>
-				<form action="/cancel" onsubmit="return confirm('강의 신청을 취소하겠습니까?');">
+				<!-- <form action="/cancel" onsubmit="return confirm('강의 신청을 취소하겠습니까?');">
 					<input type="hidden" name="t" value="c"/>
 					<input type="hidden" name="cid" value="<%= classinfo.cid %>"/>
 				  <input type="submit" class="buttoncenter" value="취소하기"/>
-				</form>
+				</form> -->
 			</div>
 			<% } else { %>
 			<div class="myitem" align="center">

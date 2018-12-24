@@ -17,7 +17,7 @@
 		<p class="detail_info">강사: <%= bibleinfo.speaker %></p>
 		<p class="detail_info">수강인원: <%= bibleinfo.current %>/<%= bibleinfo.max %></p>
 		<p class="class_details"><%= bibleinfo.details %></p>
-		<% if (registered) { %>
+		<!-- <% if (registered) { %>
 		<form action="/cancel" class="detail_form" onsubmit="return confirm('강의 신청을 취소하겠습니까?');">
 			<input type="hidden" name="t" value="b"/>
 			<input type="hidden" name="bid" value="<%= bibleinfo.bid %>"/>
@@ -29,7 +29,7 @@
 			<input type="hidden" name="bid" value="<%= bibleinfo.bid %>"/>
 		  <input type="submit" class="detail_button" value="신청하기"/>
 		</form>
-		<% } %>
+		<% } %> -->
 	</div>
 	<% } else if (type == "class") { %>
 	<div class=<%= box %> align="center">
@@ -38,7 +38,7 @@
 		<p class="detail_info">강사: <%= classinfo.speaker %></p>
 		<p class="detail_info">수강인원: <%= classinfo.current %>/<%= classinfo.max %></p>
 		<p class="class_details"><%= classinfo.details %></p>
-		<% if (registered) { %>
+		<!-- <% if (registered) { %>
 		<form action="/cancel" class="detail_form" onsubmit="return confirm('강의 신청을 취소하겠습니까?');">
 			<input type="hidden" name="t" value="c"/>
 			<input type="hidden" name="cid" value="<%= classinfo.cid %>"/>
@@ -50,7 +50,7 @@
 			<input type="hidden" name="cid" value="<%= classinfo.cid %>"/>
 		  <input type="submit" class="detail_button" value="신청하기"/>
 		</form>
-		<% } %>
+		<% } %> -->
 	</div>
 	<% } %>
 	<div align="center">
