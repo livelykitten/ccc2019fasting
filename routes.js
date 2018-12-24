@@ -33,7 +33,7 @@ module.exports = function(app, passport) {
 		res.render('notice.ejs');
 	})
 
-	app.post('/login', passport.authenticate('local-login', { successRedirect : '/notice', failureRedirect : '/' }));
+	app.post('/login', passport.authenticate('local-login', { successRedirect : '/', failureRedirect : '/' }));
 
 
 	app.get('/logout', isLoggedIn, function(req, res) {
