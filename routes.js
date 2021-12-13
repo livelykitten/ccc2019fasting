@@ -5,6 +5,7 @@ var dbconfig = require('./config/database');
 var connection = mysql.createPool(dbconfig.poolconfig);
 var overview_pw = "heart";
 var ccc_setting = require('./config/ccc');
+var mail_transporter = require('./config/mail');
 
 module.exports = function(app, passport) {
 
@@ -24,7 +25,8 @@ module.exports = function(app, passport) {
 						mycid : rows[0].cid,
 						biblelist : rows1,
 						classlist : rows2,
-						show_register_buttons: show_register_buttons
+						show_register_buttons: show_register_buttons,
+						start_time_text: ccc_setting.register_start_time.toLocaleString('ko-KR', {timeZone: 'Asia/Seoul'})
 					});
 				})
 			})
@@ -193,8 +195,10 @@ module.exports = function(app, passport) {
 							res.redirect('/confirm?t=ref');
 						else {
 							connection.query("UPDATE Users SET cid = ? where uid = ?", [req.query.cid, req.user.uid], function(err, rows) {
-								if (err)
+								if (err) {
+									console.log("err")
 									res.redirect('/confirm?t=e');
+								}
 								else
 									res.redirect('/confirm?t=rs');
 							})
@@ -217,9 +221,10 @@ module.exports = function(app, passport) {
 							res.redirect('/confirm?t=ref');
 						else {
 							connection.query("UPDATE Users SET bid = ? where uid = ?", [req.query.bid, req.user.uid], function(err, rows) {
-								if (err)
+								if (err) {
+									console.log("err")
 									res.redirect('/confirm?t=e');
-								else
+								}
 									res.redirect('/confirm?t=rs');
 							})
 						}
@@ -282,7 +287,30 @@ module.exports = function(app, passport) {
 		else {
 			res.render('overviewauthenticate.ejs', {wrong : true});
 		}
-	})
+	});
+
+	app.post('/resetpassword', function(req, res, next) {
+		// req.body.email로 검색. 실패시 에러 flash와 함께 되돌려보낸다.
+		// 에러: 010-9637-2210으로 이메일, 이름, 캠퍼스를 문자로 문의해주세요.
+		var new_password = Math.floor(100000 + Math.random() * 900000)
+		// db에 저장. 실패시 에러 flash와 함께 되돌려보낸다.
+		// 에러: 010-9637-2210으로 이메일, 이름, 캠퍼스를 문자로 문의해주세요.
+		var mailOptions = {
+			from: 'gogoangi24@gmail.com',
+			to: 'ichupu9999@naver.com',
+			subject: '2021년도 대전충남 CCC 금식수련회 임시 비밀번호',
+			text: new_password.toString()
+		  };
+		  
+		mail_transporter.sendMail(mailOptions, function(err, info) {
+			if (err) {
+				next(err);
+			} else {
+				console.log(info);
+				res.redirect('/login'); // get/resetpassword로 에러 flash와 함께 되돌려보낸다.
+			}
+		});
+	});
 
 };
 
