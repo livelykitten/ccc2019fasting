@@ -9,6 +9,10 @@ var ccc_setting = require('./config/ccc');
 module.exports = function(app, passport) {
 
 	app.get('/', isLoggedIn, function(req, res, next) {
+		var show_register_buttons = false;
+		if (ccc_setting.register_start_time < (new Date())) {
+			show_register_buttons = true;
+		}
 		connection.query("SELECT bid, cid FROM Users where uid = ?", [req.user.uid], function(err, rows) {
 			if (err) next(err);
 			connection.query("SELECT * FROM Bible", function(err1, rows1) {
@@ -19,7 +23,8 @@ module.exports = function(app, passport) {
 						mybid : rows[0].bid, // null if not registered yet
 						mycid : rows[0].cid,
 						biblelist : rows1,
-						classlist : rows2
+						classlist : rows2,
+						show_register_buttons: show_register_buttons
 					});
 				})
 			})
@@ -58,6 +63,10 @@ module.exports = function(app, passport) {
 	});
 
 	app.get('/details', isLoggedIn, function(req, res, next) {
+		var show_register_buttons = false;
+		if (ccc_setting.register_start_time <= (new Date())) {
+			show_register_buttons = true;
+		}
 		if (req.query.t == "c") {
 			connection.query("SELECT * from Classes_countdown", function (err, classes_countdown_row) {
 				if (err) {
@@ -78,7 +87,7 @@ module.exports = function(app, passport) {
 							connection.query("SELECT * FROM Users where uid = ? and cid = ?", [req.user.uid, req.query.cid], function(err2, rows2) {
 								if (err2)
 									next(err2);
-								res.render('detail.ejs', {type : "class", classinfo : rows1[0], registered : (rows2.length > 0), reveal_zoom_link: reveal_zoom_link});
+								res.render('detail.ejs', {type : "class", classinfo : rows1[0], registered : (rows2.length > 0), reveal_zoom_link: reveal_zoom_link, show_register_buttons: show_register_buttons});
 							});
 						}
 					});
@@ -105,7 +114,7 @@ module.exports = function(app, passport) {
 							connection.query("SELECT * FROM Users where uid = ? and bid = ?", [req.user.uid, req.query.bid], function(err2, rows2) {
 								if (err2)
 									console.log(err2);
-								res.render('detail.ejs', {type : "bible", bibleinfo : rows1[0], registered : (rows2.length > 0), reveal_zoom_link: reveal_zoom_link});
+								res.render('detail.ejs', {type : "bible", bibleinfo : rows1[0], registered : (rows2.length > 0), reveal_zoom_link: reveal_zoom_link, show_register_buttons: show_register_buttons});
 							});
 						}
 					});
@@ -115,7 +124,11 @@ module.exports = function(app, passport) {
 	});
 
 	app.get('/cancel', isLoggedIn, function(req, res, next) {
-		if (req.query.t == "c") {
+		if (ccc_setting.register_start_time > (new Date())) {
+			res.status(400);
+			res.send('None shall pass');
+		}
+		else if (req.query.t == "c") {
 			connection.query("SELECT cid from Users where uid = ?", [req.user.uid], function(err, rows) {
 				if (err)
 					res.redirect('/confirm?t=e');
@@ -162,7 +175,11 @@ module.exports = function(app, passport) {
 	})
 
 	app.get('/register', isLoggedIn, function(req, res, next) {
-		if (req.query.t == "c") {
+		if (ccc_setting.register_start_time > (new Date())) {
+			res.status(400);
+			res.send('None shall pass');
+		}
+		else if (req.query.t == "c") {
 			connection.query("SELECT cid from Users where uid = ?", [req.user.uid], function(err, rows) {
 				if (err)
 					res.redirect('/confirm?t=e');

@@ -22,6 +22,7 @@
 		<% } else { %>
 		<p class="link_alt_text">Zoom 링크는 이 페이지에서 강의 시작 30분 전에 신청한 지체에게만 공개됩니다.</p>
 		<% } %>
+		<% if (show_register_buttons) { %>
 		<% if (registered) { %>
 		<form action="/cancel" class="detail_form" onsubmit="return confirm('강의 신청을 취소하겠습니까?');">
 			<input type="hidden" name="t" value="b"/>
@@ -34,6 +35,7 @@
 			<input type="hidden" name="bid" value="<%= bibleinfo.bid %>"/>
 		  <input type="submit" class="detail_button" value="신청하기"/>
 		</form>
+		<% } %>
 		<% } %>
 	</div>
 	<% } else if (type == "class") { %>
@@ -48,6 +50,7 @@
 		<% } else { %>
 			<p class="link_alt_text">Zoom 링크는 이 페이지에서 강의 시작 30분 전에 신청한 지체에게만 공개됩니다.</p>
 		<% } %>
+		<% if (show_register_buttons) { %>
 		<% if (registered) { %>
 		<form action="/cancel" class="detail_form" onsubmit="return confirm('강의 신청을 취소하겠습니까?');">
 			<input type="hidden" name="t" value="c"/>
@@ -60,6 +63,7 @@
 			<input type="hidden" name="cid" value="<%= classinfo.cid %>"/>
 		  <input type="submit" class="detail_button" value="신청하기"/>
 		</form>
+		<% } %>
 		<% } %>
 	</div>
 	<% } %>
