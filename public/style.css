@@ -23,12 +23,14 @@ html, body {
 }
 
 .bigbox {
+	display: flex;
+  	flex-direction: column;
 	position: relative;
 	border: 1px solid #FFFFFF;
 	border-radius: 2px;
 	margin: auto;
 	width: 800px;
-	height: 460px;
+	min-height: 460px;
 	alignment-baseline: center;
 	align-content: center;
 }
@@ -64,6 +66,20 @@ html, body {
 .class_details {
 	color: white;
 	font-size: 20px;
+	padding: 10px 30px 20px 30px;
+	white-space: pre-line;
+}
+
+.link {
+	color: white;
+	font-size: 20px;
+	padding: 10px 30px 20px 30px;
+	white-space: pre-line;
+}
+
+.link_alt_text {
+	color: white;
+	font-size: 18px;
 	padding: 10px 30px 20px 30px;
 	white-space: pre-line;
 }
@@ -142,10 +158,8 @@ html, body {
 }
 
 .detail_form {
-	position: absolute;
-	bottom: 40px;
-	left: 40px;
-	right: 40px;
+	position: relative;
+	bottom: 10px;
 }
 
 .detail_button {

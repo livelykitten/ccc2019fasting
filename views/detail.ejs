@@ -17,6 +17,11 @@
 		<p class="detail_info">강사: <%= bibleinfo.speaker %></p>
 		<p class="detail_info">수강인원: <%= bibleinfo.current %>/<%= bibleinfo.max %></p>
 		<p class="class_details"><%= bibleinfo.details %></p>
+		<% if (reveal_zoom_link) { %>
+		<a class="link" align="center" href=<%= bibleinfo.link %>><%= bibleinfo.link %></a>
+		<% } else { %>
+		<p class="link_alt_text">Zoom 링크는 이 페이지에서 강의 시작 30분 전에 신청한 지체에게만 공개됩니다.</p>
+		<% } %>
 		<% if (registered) { %>
 		<form action="/cancel" class="detail_form" onsubmit="return confirm('강의 신청을 취소하겠습니까?');">
 			<input type="hidden" name="t" value="b"/>
@@ -32,12 +37,17 @@
 		<% } %>
 	</div>
 	<% } else if (type == "class") { %>
-	<div class=<%= box %> align="center">
+	<div class="bigbox" align="center">
 		<h2 style="color:white" class="title"><%= classinfo.title %></h2>
 		<p class="detail_info">주제: <%= classinfo.field %></p>
 		<p class="detail_info">강사: <%= classinfo.speaker %></p>
 		<p class="detail_info">수강인원: <%= classinfo.current %>/<%= classinfo.max %></p>
 		<p class="class_details"><%= classinfo.details %></p>
+		<% if (reveal_zoom_link) { %>
+		<a class="link" align="center" href=<%= classinfo.link %>><%= classinfo.link %></a>
+		<% } else { %>
+			<p class="link_alt_text">Zoom 링크는 이 페이지에서 강의 시작 30분 전에 신청한 지체에게만 공개됩니다.</p>
+		<% } %>
 		<% if (registered) { %>
 		<form action="/cancel" class="detail_form" onsubmit="return confirm('강의 신청을 취소하겠습니까?');">
 			<input type="hidden" name="t" value="c"/>

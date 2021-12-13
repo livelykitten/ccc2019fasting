@@ -1,5 +1,11 @@
 USE 18fasting;
 
+insert into Bible_lecture_time (start_time, end_time) values ("2021-12-28 00:00:00", "2021-12-28 01:30:00");
+insert into Bible_lecture_time (start_time, end_time) values ("2021-12-28 03:00:00", "2021-12-28 04:30:00");
+insert into Bible_lecture_time (start_time, end_time) values ("2021-12-29 00:00:00", "2021-12-29 01:30:00");
+
+insert into Classes_lecture_time (start_time, end_time) values ("2021-12-28 06:30:00", "2021-12-28 08:30:00");
+
 insert into Classes (title, field, speaker, details, current, max) values("하나님이 설계하신 나의 영성을 찾기!", "그리스도인과 삶", "이정현 간사", " 하나님은 당신을 특정한 성품과 특정한 영적 기질의 소유자로 지으셨다. 9가지 영성기질 테스트를 통해 당신의 영성기질을 알아보고 영혼의 정원을 가꾸자!", 0, 15);
 insert into Classes (title, field, speaker, details, current, max) values("날마다 큐티 하는 순장", "성경", "김종철 간사", "내 삶을 해석하는 큐티의 실제를 경험하고 캠퍼스 내에 큐티 운동을 일으키는 순장이 되어보자.", 0, 15);
 insert into Classes (title, field, speaker, details, current, max) values("크리스천의 이성교제", "결혼과 가정", "김수진 간사", "세상과 다른 기준인 크리스천의 이성교제에 대해 실제적인 이야기를 나눠보아요.", 0, 30);
